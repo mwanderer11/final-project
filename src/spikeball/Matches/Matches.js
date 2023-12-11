@@ -1,6 +1,4 @@
-import React, {UseEffect} from "react"
-import {UseParams} from "react-router-dom"
-import { useSelector, useDispatch} from "react-redux";
+import React from "react"
 
 function Matches() {
     return (
