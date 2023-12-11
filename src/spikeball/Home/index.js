@@ -1,5 +1,5 @@
 import Matches from "../Matches/Matches";
-import table from "../Players/table";
+import PlayerTable from "../Players/table";
 
 function Home() {
     return (
@@ -20,7 +20,7 @@ function Home() {
                     </td>
                     <td>
                         <h2> Players </h2>
-                        <table/>
+                        <PlayerTable/>
                     </td>
                 </tr>
                 </tbody>
