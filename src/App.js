@@ -7,8 +7,8 @@ function App() {
       <HashRouter>
         <div>
           <Routes>
-            <Route path="/"         element={<Navigate to="/Spikeball"/>}/>
-            <Route path="/Spikeball/*"   element={<Spikeball/>}/>
+            <Route path="/"         element={<Navigate to="/Roundnet"/>}/>
+            <Route path="/Roundnet/*"   element={<Spikeball/>}/>
           </Routes>
         </div>
       </HashRouter>
