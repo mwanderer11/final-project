@@ -26,13 +26,13 @@ function Spikeball() {
                     <div className="overflow-y-scroll">
                         <Routes>
                             <Route path="/" element={<Navigate to="Home"/>}/>
-                            <Route path="Home" to="Roundnet/Dashboard"
+                            <Route path="Home" to="/Roundnet/Home"
                                    element={<Home/>}/>
-                            <Route path="Profile" to="Roundnet/Profile"
+                            <Route path="Profile" to="/Roundnet/Profile"
                                    element={<Profile/>}/>
-                            <Route path = "Players" to "Roundnet/Players"
+                            <Route path = "Players" to "/Roundnet/Players"
                                    element={<PlayerTable/>}/>
-                            <Route path="Player" to "Roundnet/Players/:id"
+                            <Route path="Player" to "/Roundnet/Players/:id"
                             element={<Players/>}/>
                         </Routes>
                     </div>
