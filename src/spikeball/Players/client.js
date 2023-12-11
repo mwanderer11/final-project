@@ -1,11 +1,12 @@
-import axios, {get} from "axios";
-const API_BASE = 'https://spikeball-server-app.onrender.com/api'
+import axios from "axios";
+const API_BASE = 'https://spikeball-server.onrender.com/api'
 const PLAYERS_URL = `${API_BASE}/players`
 
 const request = axios.create({withCredentials: true,});
 
 export const findPlayerByName = async (name) => {
-    const response = await request/get
+    const response = await request.get(`${PLAYERS_URL}/name`)
+    return response; 
 }
 export const findPlayerById = async (id) => {
     const response = await request.get(`${PLAYERS_URL}/${id}`);
