@@ -6,7 +6,7 @@ const request = axios.create({withCredentials: true,});
 
 export const findPlayerByName = async (name) => {
     const response = await request.get(`${PLAYERS_URL}/name`)
-    return response; 
+    return response;
 }
 export const findPlayerById = async (id) => {
     const response = await request.get(`${PLAYERS_URL}/${id}`);
