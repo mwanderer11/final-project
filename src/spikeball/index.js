@@ -30,9 +30,9 @@ function Spikeball() {
                                    element={<Home/>}/>
                             <Route path="Profile" to="/Roundnet/Profile"
                                    element={<Profile/>}/>
-                            <Route path = "Players" to "/Roundnet/Players"
+                            <Route path = "Players" to="/Roundnet/Players"
                                    element={<PlayerTable/>}/>
-                            <Route path="Player" to "/Roundnet/Players/:id"
+                            <Route path="Player" to="/Roundnet/Players/:id"
                             element={<Players/>}/>
                         </Routes>
                     </div>
