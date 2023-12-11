@@ -28,31 +28,5 @@ function Players() {
                 </div>
             )}
         </div>
-    )
-    return (
-        <ul className="list-group">
-            <li className="list-group-item">
-                <button onClick={handleAddPlayer} type="button" className="btn btn-success float-end">
-                    Add player
-                </button>
-                <button onClick={handleUpdatePlayer} type="button" className="btn btn-warning float-end">
-                    Update player
-                </button>
-                <input className="form-control-sm wd-sidebar-padding-text" value={player.name}
-                       onChange={(e) => dispatch(setPlayer({
-                                                               ...player, name: e.target.value}))}/>
-            </li>
-            {players.map((player, index) => (
-                <li key={index} className="list-group-item module-spacing">
-                    <button type="button" className="btn btn-danger float-end"
-                            onClick={handleDeletePlayer}>Delete</button>
-                    <button type="button" className="btn btn-success float-end"
-                            onClick={() =>
-                                dispatch(setPlayers(player))}>Edit</button>
-                    {player.name}: {player.ranking}
-                </li>
-                ))
-            }
-        </ul>
     );
 } export default Players;
