@@ -1,0 +1,137 @@
+.wd-sidebar {
+    background-color: black;
+    color: white;
+}
+
+.wd-red-text {
+    color: red
+}
+
+h1.blue{
+    color:blue;
+}
+
+.wd-sidebar-padding {
+    padding-left: 20px;
+}
+
+.wd-white-text {
+    color: white;
+}
+
+.wd-black-border {
+    border-left: 2px solid black;
+}
+
+.wd-no-underline {
+    text-decoration: none;
+}
+
+.wd-black-text {
+    color: black;
+}
+
+.wd-sidebar-padding-text {
+    padding-left: 10px;
+}
+
+.wd-space-right {
+    padding-right: 50px;
+}
+
+.wd-padding-big {
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+.wd-pos-fixed {
+    position: fixed;
+}
+
+.wd-space-left {
+    padding-left: 40px;
+}
+
+.wd-padding-small {
+    padding-left: 5px;
+}
+
+.wd-assignment-padding {
+    padding: 10px;
+}
+
+.wd-dashboard-padding {
+    padding: 30px;
+}
+
+.wd-green-text {
+    color: green;
+}
+
+.wd-grey-background {
+    background-color: lightyellow;
+}
+
+.wd-assignment-style {
+    background-color: grey;
+    color: black;
+}
+
+.wd-flex-row-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.list-group-item-danger {
+    color: red;
+    background-color: black;
+}
+
+.list-group-item-danger.active {
+    color: red;
+    background-color: white;
+}
+
+.list-group-item-primary {
+    color:red;
+    background-color:white;
+    padding: 10px;
+}
+
+.list-group-item-primary.active {
+    color:black;
+    background-color:white;
+}
+
+.card-width {
+    width: 300px;
+    height: 300px;
+}
+
+.module-spacing {
+    padding-bottom: 50px;
+}
+
+.wd-padding-left {
+    padding-left: 200px;
+}
+
+.wd-padding-left-small {
+    padding-left: 100px;
+}
+
+.assignment-spacing {
+    padding-bottom: 25px;
+}
+
+.no-border td {
+    border-bottom: none;
+}
+
+.no-bottom tr {
+    border-bottom: none;
+}
+
+.wd-margin-left {
+    margin-left: 30px;
+}
