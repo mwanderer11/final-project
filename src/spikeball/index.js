@@ -6,7 +6,7 @@ import Home from "./Home/index";
 import Players from "./Players/Players";
 import PlayerTable from "./Players/table";
 
-function spikeball() {
+function Spikeball() {
     const[players, setPlayers] = useState([]);
     const [player, setPlayer] = useState()
     const URL = 'localhost4000';
@@ -41,4 +41,4 @@ function spikeball() {
             </table>
         </div>
     )
-} export default spikeball();
+} export default Spikeball();
