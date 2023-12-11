@@ -5,7 +5,6 @@ import Players from "./Players/Players";
 import PlayerTable from "./Players/table";
 
 function Spikeball() {
-
     return (
         <div className="table-borderless table-responsive">
             <table className="table">
@@ -32,4 +31,4 @@ function Spikeball() {
             </table>
         </div>
     )
-} export default Spikeball();
+} export default Spikeball;
