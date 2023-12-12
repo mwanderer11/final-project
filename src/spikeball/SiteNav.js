@@ -1,5 +1,5 @@
 import {Link, useLocation, useNavigate} from "react-router-dom";
-import {FaSearch, FaUser, FaHome, FaUserFriends} from "react-icons/fa";
+import { FaUser, FaHome, FaUserFriends} from "react-icons/fa";
 import {GiSoccerField} from "react-icons/gi";
 import "./index.css"
 import {useState} from "react";
