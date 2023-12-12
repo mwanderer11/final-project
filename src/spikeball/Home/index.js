@@ -9,6 +9,7 @@ function Home() {
                 <tr>
                     <td>
                         <h1>Northeastern Club Roundnet </h1>
+                        <hr/>
                     </td>
                 </tr>
                 </thead>
@@ -17,10 +18,6 @@ function Home() {
                     <td>
                         <h2> Today's matches </h2>
                         <Matches/>
-                    </td>
-                    <td>
-                        <h2> Players </h2>
-                        <PlayerTable/>
                     </td>
                 </tr>
                 </tbody>

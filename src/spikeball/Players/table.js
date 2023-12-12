@@ -63,9 +63,9 @@ function PlayerTable() {
                     </td>
                     <td className="text-nowrap">
                         <BsFillCheckCircleFill onClick={updatePlayer}
-                                               className="me-2 text-success fs-1 text"/>
+                                               className="btn me-2 text-success fs-1 text"/>
                         <BsPlusCircleFill onClick={createPlayer}
-                                          className="me-2 text-success fs-1 text"/>
+                                          className="btn me-2 text-success fs-1 text"/>
                          <button className="btn btn-warning me-2">
                              <BsPencil onClick={() => selectPlayer(player)}/>
                          </button>
