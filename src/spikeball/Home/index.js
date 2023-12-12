@@ -1,5 +1,4 @@
 import Matches from "../Matches/Matches";
-import PlayerTable from "../Players/table";
 
 function Home() {
     return (

@@ -21,7 +21,7 @@ function Matches() {
         const players = await playerClient.findPlayers();
         setPlayers(players);
     };
-    const deleteMatch = async () => {
+/*    const deleteMatch = async () => {
         try {
             await client.removeMatch(match.id);
             setPlayers(players.filter((m) => m.id !== match.id));
@@ -46,7 +46,7 @@ function Matches() {
         } catch (err) {
             console.log(err);
         }
-    };
+    };*/
 
     useEffect(() => { fetchMatches(); }, []);
     useEffect(() => {fetchPlayers(); }, []);
