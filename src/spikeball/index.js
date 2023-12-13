@@ -6,6 +6,8 @@ import PlayerTable from "./Players/table";
 import Matches from "./Matches/Matches";
 import Match from "./Matches/index"
 import Profile from "./Profile/Profile"
+import Signup from "./Profile/signup";
+import Signin from "./Profile/signin";
 
 function Spikeball() {
     return (
@@ -13,18 +15,21 @@ function Spikeball() {
             <SiteNav/>
             <Routes>
                 <Route path="/" element={<Navigate to="Home"/>}/>
-                <Route path="/Roundnet/Home"
+                <Route path="Home"
                        element={<Home/>}/>
-                <Route path="Profile" to="/Roundnet/Profile"
+                <Route path="Profile"
                              element={<Profile/>}/>
-                <Route path = "/Roundnet/Players"
+                <Route path = "Players"
                        element={<PlayerTable/>}/>
-                <Route path="/Roundnet/Players/:id"
+                <Route path="Players/:id"
                        element={<Players/>}/>
-                <Route path= "/Roundnet/Matches"
+                <Route path= "Matches"
                        element={<Matches/>}/>
-                <Route path="/Roundnet/Matches/:id"
+                <Route path="Matches/:id"
                        element={<Match/>}/>
+                <Route path="signup"
+                       element={<Signup/>}/>
+                <Route path="signin" element={<Signin/>}/>
             </Routes>
         </div>
     )

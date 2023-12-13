@@ -112,8 +112,8 @@ h1.blue{
     padding-bottom: 50px;
 }
 
-.wd-padding-left {
-    padding-left: 200px;
+.wd-padding-left-extreme {
+    padding-left: 500px;
 }
 
 .wd-padding-left-small {
@@ -138,4 +138,8 @@ h1.blue{
 
 .wd-padding-left {
     padding-left: 50px;
+}
+
+.wd-center-align {
+    text-align: center;
 }

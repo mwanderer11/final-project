@@ -56,9 +56,9 @@ function PlayerTable() {
                 <thead>
                 <tr>
                     <td>
-                        <input value={player.name} onChange={(e) =>
+                        <input placeholder="name" value={player.name} onChange={(e) =>
                                    setPlayer({...player, name: e.target.value})}/>
-                        <input value={player.ranking} onChange={(e) =>
+                        <input placeholder="ranking" value={player.ranking} onChange={(e) =>
                                     setPlayer({...player, ranking: e.target.value})}/>
                     </td>
                     <td className="text-nowrap">

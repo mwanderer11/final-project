@@ -1,17 +1,17 @@
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import { FaUser, FaHome, FaUserFriends} from "react-icons/fa";
-import {GiSoccerField} from "react-icons/gi";
 import "./index.css"
 import {useState} from "react";
 import * as client from "./Players/client";
 
 function SiteNav() {
+    const net = <img src="../net.png" width={50} height={50} alt=""></img>
     const [name, setName] = useState("");
     const navigate = useNavigate();
     const selectPlayer = async (name) => {
         try {
             const p = await client.findPlayerByName(name);
-            navigate(`/Roundnet/Players/${p.id}`)
+            navigate(`/Roundnet/Players/${p._id}`)
         } catch (err) {
             console.log(err);
         }
@@ -45,13 +45,14 @@ function SiteNav() {
                 to={`Matches`}
                 className={
                     `nav-item nav-link ${pathname.includes(`Matches`) && "active"}`}>
-                <h1 className="wd-padding-left">{<GiSoccerField/>}</h1> <p className="wd-padding-left"> Matches </p>
+                <h1 className="wd-padding-left">{net}</h1> <p className="wd-padding-left"> Matches </p>
             </Link>
+            <h1 className={"wd-padding-left"}>Northeastern Club Roundnet</h1>
             <div className={"wd-padding-left"}>
                 <input className="form-control-md
-                 mr-sm-2 wd-padding-left" type="search" onChange={(e) => setName(e.target.value)}
+                 mr-sm-2" type="search" onChange={(e) => setName(e.target.value)}
                        placeholder="Search" aria-label={"Search"}/>
-                <button className={"btn btn-outline-danger my-2 my-sm-0"} type={"submit"}
+                <button className="btn btn-outline-danger my-2 my-sm-0" type={"submit"}
                 onClick={() => selectPlayer(`${name}`)}>Search</button>
             </div>
         </nav>
