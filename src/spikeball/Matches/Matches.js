@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react"
 import {Link} from "react-router-dom"
 import * as client from "./client"
-import * as playerClient from "../Players/client"
 
 function Matches() {
     const date = new Date();
@@ -10,7 +9,6 @@ function Matches() {
     const year = date.getFullYear();
     const d1 = new Date(year, month, day);
     const [matches, setMatches] = useState([]);
-    const [players, setPlayers] = useState([]);
     console.log(date.toString());
 
     const fetchMatches = async () => {
@@ -18,13 +16,8 @@ function Matches() {
         setMatches(matches);
     }
 
-    const fetchPlayers = async () => {
-        const players = await playerClient.findPlayers();
-        setPlayers(players);
-    };
 
     useEffect(() => { fetchMatches(); }, []);
-    useEffect(() => {fetchPlayers(); }, []);
 
     const first = matches[0];
     console.log(first);
