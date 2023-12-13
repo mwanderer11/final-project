@@ -1,6 +1,6 @@
 import axios from "axios";
-const API_BASE = 'https://spikeball-server.onrender.com/api'
-const MATCHES_URL = `${API_BASE}/matches`
+export const API_BASE = 'https://spikeball-server.onrender.com/api'
+export const MATCHES_URL = `${API_BASE}/matches`
 
 const request = axios.create({withCredentials: true,});
 

@@ -1,11 +1,11 @@
 import axios from "axios";
-const API_BASE = 'https://spikeball-server.onrender.com/api'
-const PLAYERS_URL = `${API_BASE}/players`
+export const API_BASE = 'https://spikeball-server.onrender.com/api'
+export const PLAYERS_URL = `${API_BASE}/players`
 
 const request = axios.create({withCredentials: true,});
 
 export const findPlayerByName = async (name) => {
-    const response = await request.get(`${PLAYERS_URL}/name`)
+    const response = await request.get(`${PLAYERS_URL}/${name}`)
     return response;
 }
 export const findPlayerById = async (id) => {
@@ -28,6 +28,6 @@ export const removePlayer = async (playerId) => {
 }
 
 export const updatePlayer = async (player) => {
-    const response = await request.put(`${PLAYERS_URL}/${player.id}`, player);
+    const response = await request.put(`${PLAYERS_URL}/${player._id}`, player);
     return response.data;
 }

@@ -2,7 +2,7 @@ import Matches from "../Matches/Matches";
 
 function Home() {
     return (
-        <div className="table-responsive">
+        <div className="table-responsive wd-padding-small">
             <table className="table-borderless" border="0">
                 <thead>
                 <tr>

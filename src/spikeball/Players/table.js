@@ -74,9 +74,9 @@ function PlayerTable() {
                 </thead>
                 <tbody>
                 {players.map((player) => (
-                    <tr key={player.id}>
+                    <tr key={player._id}>
                         <td>
-                            <Link to={`/Roundnet/Players/${player.id}`}>
+                            <Link to={`/Roundnet/Players/${player._id}`}>
                                 {player.name}
                             </Link>
                         </td>
