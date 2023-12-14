@@ -35,7 +35,6 @@ function Profile() {
                                                                ...account,
                                                                password: e.target.value
                                                            })}/>
-                    )}
                     <input className="form-control" value={account.firstName}
                            onChange={(e) => setAccount({ ...account,
                                                            firstName: e.target.value })}/>
@@ -48,17 +47,35 @@ function Profile() {
                     <input className="form-control" value={account.email}
                            onChange={(e) => setAccount({ ...account,
                                                            email: e.target.value })}/>
+                    {account.role === "ADMIN" && (
+                        <select className="form-select" onChange={(e) => setAccount({ ...account,
+                                                                                        role: e.target.value })}>
+                            <option value="MEMBER">Member</option>
+                            <option value="ADMIN" selected>Admin</option>
+                            <option value="COACH">Coach</option>
+                        </select>
+                    )}
+                    {account.role === "MEMBER" && (
                     <select className="form-select" onChange={(e) => setAccount({ ...account,
                                                                                     role: e.target.value })}>
-                        <option value="MEMBER">Member</option>
+                        <option value="MEMBER" selected>Member</option>
                         <option value="ADMIN">Admin</option>
                         <option value="COACH">Coach</option>
                     </select>
+                                  )}
+                    {account.role === "COACH" && (
+                        <select className="form-select" onChange={(e) => setAccount({ ...account,
+                                                                                        role: e.target.value })}>
+                            <option value="MEMBER">Member</option>
+                            <option value="ADMIN">Admin</option>
+                            <option value="COACH" selected>Coach</option>
+                        </select>
+                    )}
                     <button onClick={save} className="btn btn-primary">
                         Save
                     </button>
                     <button onClick={signout} className="btn btn-danger">Sign out</button>
-                    <Link to="/Roundnet/Users" className="btn btn-warning w-100">
+                    <Link to="/Roundnet/Profile/Users" className="btn btn-warning w-100">
                         Users
                     </Link>
                 </div>

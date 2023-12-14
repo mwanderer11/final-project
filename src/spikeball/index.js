@@ -9,6 +9,7 @@ import Profile from "./Profile/Profile"
 import Signup from "./Profile/signup";
 import Signin from "./Profile/signin";
 import Search from "./Players/Search";
+import UserTable from "./Profile/table";
 
 function Spikeball() {
     return (
@@ -20,6 +21,8 @@ function Spikeball() {
                        element={<Home/>}/>
                 <Route path="Profile"
                              element={<Profile/>}/>
+                <Route path="Profile/Users"
+                       element={<UserTable/>}/>
                 <Route path = "Players"
                        element={<PlayerTable/>}/>
                 <Route path="Players/:id"

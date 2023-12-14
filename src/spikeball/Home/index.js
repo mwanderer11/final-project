@@ -10,16 +10,9 @@ function Home() {
     return (
         <div className="table-responsive wd-padding-small">
             <table className="table-borderless" border="0">
-                <thead className="thead-dark">
-                <tr>
-                    <td>
-                        <h1 className={"wd-padding-left-extreme"}>Home</h1>
-                    </td>
-                </tr>
-                </thead>
                 <tbody>
                 <tr>
-                    <td>
+                    <td valign={"top"} width="80%">
                         <Matches/>
                     </td>
                     <td valign={"top"} className={"wd-padding-left"}>

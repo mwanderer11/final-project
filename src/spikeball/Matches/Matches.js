@@ -40,16 +40,28 @@ function Matches() {
     const first = matches[0];
     console.log(first);
     const todayMatch = matches.filter(m => new Date(m.date).toDateString() === d1.toDateString());
-    console.log(d1.toDateString())
-    console.log(d1.toJSON())
-    console.log(d1.toString())
 
     const pastMatch = matches.filter(m=> new Date(m.date).toDateString() !== d1.toDateString());
+    const getMatchesWithName = matches.filter(m => account.firstName === m.player1
+                                                    || account.firstName === m.player2
+                                                    || account.firstName === m.player3
+                                                    || account.firstName === m.player4);
     return (
         <div>
             {account && (
                 <div>
-            <h2>Create Match</h2>
+                    <h3>Your matches</h3>
+                    <div className="list-group">
+                    {getMatchesWithName.map((match) =>
+                        <Link key={match._id} className="list-group-item" to={`/Roundnet/Matches/${match._id}`}>
+                            {match.player1}, {match.player2}, {match.player3}, {match.player4}
+                            <div className="float-end">{new Date(match.date).toDateString()}</div>
+                        </Link>
+                    )}
+                    </div>
+                    {account.role === "ADMIN" && (
+                        <div>
+            <h3>Create Match</h3>
             <input placeholder="player1" onChange={(e) =>
                 setMatch({...match, player1: e.target.value})}/>
             <input placeholder="player2" onChange={(e) =>
@@ -60,13 +72,14 @@ function Matches() {
                 setMatch({...match, player4: e.target.value})}/>
             <button type="button" className="btn btn-small btn-success" onClick={handleCreate}>Create Match</button>
                 </div>
-                )}
-            <h2> Match list </h2>
+                    )} </div> )}
+            <h3> Match list </h3>
             <h3>Today's matches</h3>
             <div className={"list-group"}>
             {todayMatch.map((match) =>
                 <Link key={match._id} className="list-group-item" to={`/Roundnet/Matches/${match._id}`}>
                     {match.player1}, {match.player2}, {match.player3}, {match.player4}
+                    <div className="float-end">{new Date(match.date).toDateString()}</div>
                 </Link>)}
             </div>
             <h3>Past matches</h3>
@@ -74,6 +87,7 @@ function Matches() {
                 {pastMatch.map((match) => (
                     <Link key={match._id} className="list-group-item" to={`/Roundnet/Matches/${match._id}`}>
                         {match.player1}, {match.player2}, {match.player3}, {match.player4}
+                        <div className="float-end">{new Date(match.date).toDateString()}</div>
                     </Link>
                 ))}
             </div>

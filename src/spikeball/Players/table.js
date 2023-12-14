@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as client from "./client";
 import {Link} from "react-router-dom"
-import {BsTrash3Fill, BsPlusCircleFill, BsFillCheckCircleFill, BsPencil} from "react-icons/bs";
+import {BsTrash3Fill } from "react-icons/bs";
 
 function PlayerTable() {
     const [players, setPlayers] = useState([]);
@@ -23,7 +23,7 @@ function PlayerTable() {
     const updatePlayer = async () => {
         try {
             await client.updatePlayer(player);
-            setPlayers(players.map((p) => (p.id === player.id ? player : p)));
+            setPlayers(players.map((p) => (p._id === player._id ? player : p)));
         } catch (err) {
             console.log(err);
         }
@@ -31,8 +31,8 @@ function PlayerTable() {
 
     const deletePlayer = async (player) => {
         try {
-            await client.removePlayer(player.id);
-            setPlayers(players.filter((p) => p.id !== player.id));
+            await client.removePlayer(player._id);
+            setPlayers(players.filter((p) => p._id !== player._id));
         } catch (err) {
             console.log(err);
         }
@@ -40,7 +40,7 @@ function PlayerTable() {
 
     const selectPlayer = async (player) => {
         try {
-            const p = await client.findPlayerById(player.id);
+            const p = await client.findPlayerById(player._id);
             setPlayer(p);
         } catch (err) {
             console.log(err);
@@ -62,13 +62,10 @@ function PlayerTable() {
                                     setPlayer({...player, ranking: e.target.value})}/>
                     </td>
                     <td className="text-nowrap">
-                        <BsFillCheckCircleFill onClick={updatePlayer}
-                                               className="btn me-2 text-success fs-1 text"/>
-                        <BsPlusCircleFill onClick={createPlayer}
-                                          className="btn me-2 text-success fs-1 text"/>
-                         <button className="btn btn-warning me-2">
-                             <BsPencil onClick={() => selectPlayer(player)}/>
-                         </button>
+                        <button type="button" onClick={updatePlayer}
+                                className="btn btn-warning">Save</button>
+                        <button type="button" onClick={createPlayer}
+                                className="btn btn-success">Add Player</button>
                     </td>
                 </tr>
                 </thead>
@@ -81,11 +78,14 @@ function PlayerTable() {
                             </Link>
                         </td>
                         <td>{player.ranking}</td>
+                        <td>
+                            <button className="btn btn-warning me-2" onClick={() => selectPlayer(player)}>
+                                Edit Player </button>
+                            <button className="btn btn-danger" onClick={() => deletePlayer(player)}>
+                            <BsTrash3Fill/>
+                        </button></td>
                     </tr>))}
                 <td>
-                    <button className="btn btn-danger" onClick={() => deletePlayer(player)}>
-                        <BsTrash3Fill/>
-                    </button>
                 </td>
                 </tbody>
             </table>
