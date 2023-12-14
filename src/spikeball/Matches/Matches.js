@@ -8,6 +8,7 @@ function Matches() {
     const day = date.getDate();
     const year = date.getFullYear();
     const d1 = new Date(year, month, day);
+    const [match, setMatch] = useState(null);
     const [matches, setMatches] = useState([]);
     console.log(date.toString());
 
@@ -16,6 +17,16 @@ function Matches() {
         setMatches(matches);
     }
 
+    const handleCreate = async () => {
+       try {
+           setMatch({...match, date: new Date().toString()});
+           const newMatch = await client.createMatch(match);
+           console.log(newMatch)
+           setMatches([newMatch, ...matches]);
+       } catch(err) {
+           console.log(err);
+       }
+    };
 
     useEffect(() => { fetchMatches(); }, []);
 
@@ -29,6 +40,16 @@ function Matches() {
     const pastMatch = matches.filter(m=> new Date(m.date).toDateString() !== d1.toDateString());
     return (
         <div>
+            <h2>Create Match</h2>
+            <input placeholder="player1" onChange={(e) =>
+                setMatch({...match, player1: e.target.value})}/>
+            <input placeholder="player2" onChange={(e) =>
+                setMatch({...match, player2: e.target.value})}/>
+            <input placeholder="player3" onChange={(e) =>
+                setMatch({...match, player3: e.target.value})}/>
+            <input placeholder="player4" onChange={(e) =>
+                setMatch({...match, player4: e.target.value})}/>
+            <button type="button" className="btn btn-small btn-success" onClick={handleCreate}>Create Match</button>
             <h2> Match list </h2>
             <h3>Today's matches</h3>
             <div className={"list-group"}>

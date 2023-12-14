@@ -12,9 +12,6 @@ function Search() {
     };
     useEffect(() => { fetchPlayers(); }, []);
     const search = players.filter(p => p.name.includes(query));
-    const str = "Malia";
-    console.log(str.includes("M"));
-    console.log(query);
     return (
         <div>
             <h1 className={"wd-padding-left-extreme"}>Search Results {<FaMagnifyingGlass/>}</h1>

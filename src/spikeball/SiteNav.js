@@ -1,10 +1,9 @@
 import {Link, useLocation, useNavigate} from "react-router-dom";
-import { FaUser, FaHome, FaUserFriends} from "react-icons/fa";
+import { FaUser, FaHome, FaUserFriends, FaClipboard} from "react-icons/fa";
 import "./index.css"
 import {useState} from "react";
 
 function SiteNav() {
-    const net = <img src="net.png" width={50} height={50} alt=""></img>
     const [name, setName] = useState("");
     const navigate = useNavigate();
 
@@ -41,7 +40,7 @@ function SiteNav() {
                 to={`Matches`}
                 className={
                     `nav-item nav-link ${pathname.includes(`Matches`) && "active"}`}>
-                <h1 className="wd-padding-left">{net}</h1> <p className="wd-padding-left"> Matches </p>
+                <h1 className="wd-padding-left">{<FaClipboard/>}</h1> <p className="wd-padding-left"> Matches </p>
             </Link>
             <h1 className={"wd-padding-left"}>Northeastern Club Roundnet</h1>
             <div className={"wd-padding-left"}>

@@ -4,10 +4,6 @@ export const PLAYERS_URL = `${API_BASE}/players`
 
 const request = axios.create({withCredentials: true,});
 
-export const findPlayerByName = async (name) => {
-    const response = await request.get(`${PLAYERS_URL}/${name}`)
-    return response;
-}
 export const findPlayerById = async (id) => {
     const response = await request.get(`${PLAYERS_URL}/${id}`);
     return response.data;
