@@ -1,7 +1,6 @@
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import { FaUser, FaHome, FaUserFriends} from "react-icons/fa";
 import "./index.css"
-import Search from "./Players/Search";
 import {useState} from "react";
 
 function SiteNav() {
