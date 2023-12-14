@@ -8,6 +8,7 @@ import Match from "./Matches/index"
 import Profile from "./Profile/Profile"
 import Signup from "./Profile/signup";
 import Signin from "./Profile/signin";
+import Search from "./Players/Search";
 
 function Spikeball() {
     return (
@@ -30,6 +31,8 @@ function Spikeball() {
                 <Route path="signup"
                        element={<Signup/>}/>
                 <Route path="signin" element={<Signin/>}/>
+                <Route path="Search/:query"
+                       element={<Search/>}/>
             </Routes>
         </div>
     )

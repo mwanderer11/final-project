@@ -1,8 +1,12 @@
 import Matches from "../Matches/Matches";
 import Rankings from "../Players/Rankings";
-import {Link} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 
 function Home() {
+    const navigate = useNavigate();
+    const toPlayers = async () => {
+        navigate("/Roundnet/Players");
+    };
     return (
         <div className="table-responsive wd-padding-small">
             <table className="table-borderless" border="0">
@@ -20,9 +24,9 @@ function Home() {
                     </td>
                     <td valign={"top"} className={"wd-padding-left"}>
                         <Rankings/>
-                        <Link to="Roundnet/Players" type="button" className="btn btn-warning">
+                        <button onClick={toPlayers} type="button" className="btn btn-warning">
                             View players
-                        </Link>
+                        </button>
                     </td>
                 </tr>
                 </tbody>

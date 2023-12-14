@@ -1,21 +1,18 @@
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import { FaUser, FaHome, FaUserFriends} from "react-icons/fa";
 import "./index.css"
+import Search from "./Players/Search";
 import {useState} from "react";
-import * as client from "./Players/client";
 
 function SiteNav() {
-    const net = <img src="../net.png" width={50} height={50} alt=""></img>
+    const net = <img src="net.png" width={50} height={50} alt=""></img>
     const [name, setName] = useState("");
     const navigate = useNavigate();
-    const selectPlayer = async (name) => {
-        try {
-            const p = await client.findPlayerByName(name);
-            navigate(`/Roundnet/Players/${p._id}`)
-        } catch (err) {
-            console.log(err);
-        }
+
+    const search = async () => {
+        navigate(`Search/${name}`);
     }
+
     const { pathname } = useLocation();
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-light">
@@ -53,7 +50,7 @@ function SiteNav() {
                  mr-sm-2" type="search" onChange={(e) => setName(e.target.value)}
                        placeholder="Search" aria-label={"Search"}/>
                 <button className="btn btn-outline-danger my-2 my-sm-0" type={"submit"}
-                onClick={() => selectPlayer(`${name}`)}>Search</button>
+                onClick={search}>Search</button>
             </div>
         </nav>
     )
