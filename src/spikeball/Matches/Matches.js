@@ -12,7 +12,6 @@ function Matches() {
     const [match, setMatch] = useState(null);
     const [matches, setMatches] = useState([]);
     const [account, setAccount] = useState(null)
-    console.log(date.toString());
 
     const fetchMatches = async () => {
         const matches = await client.findMatches();
@@ -26,7 +25,7 @@ function Matches() {
 
     const handleCreate = async () => {
        try {
-           setMatch({...match, date: new Date().toString()});
+           setMatch({date: new Date().toString(), ...match});
            const newMatch = await client.createMatch(match);
            console.log(newMatch)
            setMatches([newMatch, ...matches]);
@@ -34,25 +33,27 @@ function Matches() {
            console.log(err);
        }
     };
-
-    useEffect(() => { fetchMatches(); fetchAccount() }, []);
-
-    const first = matches[0];
-    console.log(first);
     const todayMatch = matches.filter(m => new Date(m.date).toDateString() === d1.toDateString());
-
     const pastMatch = matches.filter(m=> new Date(m.date).toDateString() !== d1.toDateString());
-    const getMatchesWithName = matches.filter(m => account.firstName === m.player1
-                                                    || account.firstName === m.player2
-                                                    || account.firstName === m.player3
-                                                    || account.firstName === m.player4);
+    const nameMatches = matches.filter(m => account.firstName === m.player1
+                                            || account.firstName === m.player2
+                                            || account.firstName === m.player3
+                                            || account.firstName === m.player4);
+
+    useEffect(() => {
+        fetchMatches();
+        fetchAccount();
+    }, []);
+
     return (
         <div>
             {account && (
                 <div>
+                    {account.username !== "" && (
+                        <div>
                     <h3>Your matches</h3>
                     <div className="list-group">
-                    {getMatchesWithName.map((match) =>
+                    {nameMatches.map((match) =>
                         <Link key={match._id} className="list-group-item" to={`/Roundnet/Matches/${match._id}`}>
                             {match.player1}, {match.player2}, {match.player3}, {match.player4}
                             <div className="float-end">{new Date(match.date).toDateString()}</div>
@@ -63,7 +64,7 @@ function Matches() {
                         <div>
             <h3>Create Match</h3>
             <input placeholder="player1" onChange={(e) =>
-                setMatch({...match, player1: e.target.value})}/>
+                setMatch({...match, player1: e.target.value, date: new Date().toString()})}/>
             <input placeholder="player2" onChange={(e) =>
                 setMatch({...match, player2: e.target.value})}/>
             <input placeholder="player3" onChange={(e) =>
@@ -71,7 +72,7 @@ function Matches() {
             <input placeholder="player4" onChange={(e) =>
                 setMatch({...match, player4: e.target.value})}/>
             <button type="button" className="btn btn-small btn-success" onClick={handleCreate}>Create Match</button>
-                </div>
+                        </div> )}  </div>
                     )} </div> )}
             <h3> Match list </h3>
             <h3>Today's matches</h3>

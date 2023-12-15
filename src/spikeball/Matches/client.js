@@ -4,7 +4,6 @@ export const MATCHES_URL = `${API_BASE}/matches`
 
 const request = axios.create({withCredentials: true,});
 
-
 export const findMatchById = async (id) => {
     const response = await request.get(`${MATCHES_URL}/${id}`);
     return response.data;

@@ -21,6 +21,7 @@ function Spikeball() {
                        element={<Home/>}/>
                 <Route path="Profile"
                              element={<Profile/>}/>
+                <Route path="Profile/:id" element={<Profile/>}/>
                 <Route path="Profile/Users"
                        element={<UserTable/>}/>
                 <Route path = "Players"

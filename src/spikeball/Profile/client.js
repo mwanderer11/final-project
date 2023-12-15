@@ -7,9 +7,9 @@ export const signin = async (credentials) => {
     const response = await request.post( `${USERS_API}/signin`, credentials);
     return response.data;
 };
+
 export const account = async () => {
     const response = await request.post(`${USERS_API}/account`);
-    console.log(response.data);
     return response.data;
 };
 
